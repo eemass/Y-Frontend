@@ -20,18 +20,18 @@ function App() {
         const res = await fetch(`${import.meta.env.VITE_API_URL}/api/auth/me`, {
           credentials: "include",
         });
-        const data = await res.json();
 
-        if (res.status === 403) return null;
-
-        if (data.error) return null;
         if (!res.ok) {
-          throw new Error(data.error || "Something went wrong.");
+          if (res.status === 403) return null;
+          const maybeError = await res.text();
+          throw new Error(maybeError || "Something went wrong.");
         }
+
+        const data = await res.json();
         return data;
       } catch (error) {
         console.log(error);
-        throw error;
+        return null;
       }
     },
   });
