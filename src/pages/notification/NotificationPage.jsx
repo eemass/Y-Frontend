@@ -17,7 +17,10 @@ const NotificationPage = () => {
     queryFn: async () => {
       try {
         const res = await fetch(
-          `${import.meta.env.VITE_API_URL}/api/notifications/`
+          `${import.meta.env.VITE_API_URL}/api/notifications/`,
+          {
+            credentials: "include",
+          }
         );
         const data = await res.json();
 
@@ -37,7 +40,7 @@ const NotificationPage = () => {
       try {
         const res = await fetch(
           `${import.meta.env.VITE_API_URL}/api/notifications/`,
-          { method: "DELETE" }
+          { method: "DELETE", credentials: "include" }
         );
         const data = await res.json();
 

@@ -42,7 +42,10 @@ const ProfilePage = () => {
     queryFn: async () => {
       try {
         const res = await fetch(
-          `${import.meta.env.VITE_API_URL}/api/user/profile/${username}`
+          `${import.meta.env.VITE_API_URL}/api/user/profile/${username}`,
+          {
+            credentials: "include",
+          }
         );
         const data = await res.json();
 

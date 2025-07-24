@@ -17,7 +17,9 @@ function App() {
     queryKey: ["authUserKey"],
     queryFn: async () => {
       try {
-        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/auth/me`);
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/auth/me`, {
+          credentials: "include",
+        });
         const data = await res.json();
 
         if (data.error) return null;

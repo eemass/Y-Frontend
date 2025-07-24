@@ -11,6 +11,7 @@ const useFollow = () => {
           `${import.meta.env.VITE_API_URL}/api/user/follow/${userId}`,
           {
             method: "POST",
+            credentials: "include",
           }
         );
         const data = await res.json();

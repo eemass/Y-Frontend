@@ -28,6 +28,7 @@ const Post = ({ post }) => {
           `${import.meta.env.VITE_API_URL}/api/post/delete/${post._id}`,
           {
             method: "DELETE",
+            credentials: "include",
           }
         );
         const data = await res.json();
@@ -52,6 +53,7 @@ const Post = ({ post }) => {
           `${import.meta.env.VITE_API_URL}/api/post/like/${post._id}`,
           {
             method: "POST",
+            credentials: "include",
           }
         );
         const data = await res.json();
@@ -89,6 +91,7 @@ const Post = ({ post }) => {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ text: comment }),
+            credentials: "include",
           }
         );
         const data = await res.json();
@@ -206,8 +209,11 @@ const Post = ({ post }) => {
                         No comments yet 🤔 Be the first one 😉
                       </p>
                     )}
-                    {post.comments.map((comment) => (
-                      <div key={comment._id} className="flex gap-2 items-start">
+                    {post.comments.map((comment, index) => (
+                      <div
+                        key={comment._id || index}
+                        className="flex gap-2 items-start"
+                      >
                         <div className="avatar">
                           <div className="w-8 rounded-full">
                             <img
