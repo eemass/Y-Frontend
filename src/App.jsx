@@ -22,6 +22,8 @@ function App() {
         });
         const data = await res.json();
 
+        if (res.status === 403) return null;
+
         if (data.error) return null;
         if (!res.ok) {
           throw new Error(data.error || "Something went wrong.");
