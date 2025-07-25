@@ -1,30 +1,107 @@
-# Y
+# Y – React Frontend
 
-Y is a social media platform built with the MERN stack, offering an engaging and interactive experience for users to connect, share, and interact with posts. Users can create posts, like and comment on others' content, follow each other, and stay updated through a personalized feed.
+This repository contains the frontend for **Y**, a full-stack social media application. Built with React and styled using Tailwind CSS and DaisyUI, this frontend connects to a Spring Boot backend to support a complete user experience, including authentication, post interactions, following, and notifications.
+
+**Backend Repository:** [Y-Spring-Boot](https://github.com/eemass/Y-Spring-Boot)  
+**Live Demo:** [https://y-frontend.onrender.com](https://y-frontend.onrender.com)
 
 ## Features
 
-- **User Authentication:** Secure signup and login using JWT authentication and password hashing with bcrypt.
-- **Posting & Interactions:** Users can create text and image posts, like, and comment on posts.
-- **Feed Customization:** Separate "For You" and "Following" sections for a personalized experience.
-- **Follow System:** Users can follow and be followed, influencing their feed.
-- **Notifications:** Real-time updates for likes, comments, and new followers.
-- **Profile Management:** Users can update their profile picture, edit details, and change passwords.
-- **User Discovery:** Users can find and follow new people through personalized suggestions.
-- **Post Management:** Users can delete their own posts and view their liked posts from their profile. Additionally, users can see other users' posts and liked posts on their profile pages.
+- User signup, login, and logout
+- Profile viewing and editing
+- Post creation with image uploads
+- Like and comment functionality
+- Follow/unfollow users
+- Notifications for likes, comments, and follows
+- Protected routes using React Router
+- Responsive layout built with Tailwind CSS and DaisyUI
+- Global server state management via React Query
+- Toast notifications with `react-hot-toast`
 
-## Tech Stack
+## Technologies Used
 
-- **Frontend:** React (React Query for state management)
-- **Backend:** Node.js with Express
-- **Database:** MongoDB
-- **Authentication:** JWT (JSON Web Tokens)
-- **Security:** bcrypt for password hashing
+- React 18
+- Vite
+- React Router DOM v7
+- React Query (TanStack)
+- Tailwind CSS 4
+- DaisyUI
+- React Hot Toast
+- React Icons
 
-## Live Demo
+## Getting Started
 
-Try out the app here: [Live Demo] https://y-a-social-media-app.onrender.com/
+### Prerequisites
 
-## Contact
+- Node.js v16 or higher
+- A running instance of the [Spring Boot backend](https://github.com/eemass/Y-Spring-Boot)
 
-For inquiries or feature requests, reach out via GitHub issues.
+### Installation
+
+Clone the repository and install dependencies:
+
+```bash
+git clone https://github.com/eemass/Y-Frontend.git
+cd Y-Frontend
+npm install
+```
+
+### Environment Configuration
+
+Create a `.env` file in the root directory and add the following:
+
+```
+VITE_API_BASE_URL=https://your-backend-domain.com/api
+```
+
+Make sure this matches the base URL of your backend server and supports credentials.
+
+### Running the Application
+
+To start the development server:
+
+```bash
+npm run dev
+```
+
+The app will run at `http://localhost:5173` by default.
+
+To build for production:
+
+```bash
+npm run build
+```
+
+## Folder Structure
+
+```
+src/
+├── components/     # Reusable UI components
+├── hooks/          # Custom hooks for fetching and logic
+├── pages/          # Page components (routes)
+├── utils/          # Helper functions and constants
+├── App.jsx         # Route layout and app entry point
+├── main.jsx        # React root rendering
+├── index.css       # Global styles (Tailwind)
+```
+
+## Deployment
+
+This frontend is deployed on Render and connects to the deployed backend. To deploy manually:
+
+1. Build the app:
+
+   ```bash
+   npm run build
+   ```
+
+2. Serve the `dist/` folder using a static host or integrate into the backend server.
+
+## License
+
+This project is licensed under the MIT License.
+
+## Author
+
+**Samiul Islam**  
+[Portfolio](https://islamsamiul.netlify.app) | [GitHub](https://github.com/eemass) | [LinkedIn](https://www.linkedin.com/in/eemass)
